@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Produto {
+  id                  String   @id @default(cuid())
+  nome                String
+  time                String
+  liga                String   @default("Outros Times")
+  categoria           String   // "torcedor" | "jogador"
+  imagens             String   // JSON string com array de urls
+  precoVenda          Float    // preco unico mostrado como "a partir de"
+  custoNacional       Float?   // interno, so admin ve
+  custoInternacional  Float?   // interno (USD), so admin ve
+  disponivelNacional  Boolean  @default(false)
+  tamanhos            String   // JSON string, ex: '["P","M","G","GG"]'
+  ativo               Boolean  @default(true)
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+}
+
+model ConfigLoja {
+  id                  String   @id @default(cuid())
+  whatsappNumero      String
+  freteNacional       Float    @default(30)
+  freteInternacional  Float    @default(0)
+  prazoNacionalMin    Int      @default(5)
+  prazoNacionalMax    Int      @default(10)
+  prazoInternMin      Int      @default(20)
+  prazoInternMax      Int      @default(40)
+  avisoPrazo          String?  // texto livre editavel, ex: alerta de alta demanda
+  updatedAt           DateTime @updatedAt
+}

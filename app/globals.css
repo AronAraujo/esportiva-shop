@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+:root {
+  /* Paleta — inspirada na etiqueta de gola de camisa de time e no vestiário */
+  --pitch:        #0D0D0F;  /* verde campo escuro, fundo principal */
+  --pitch-2:      #1C1C20;  /* verde campo, um tom acima (cards escuros) */
+  --chalk:        #e5e4e1;  /* branco giz, fundo claro */
+  --chalk-2:      #EFEBE1;  /* branco giz sombreado */
+  --ink:          #121012;  /* texto escuro */
+  --gold:         #FF2FD1;  /* dourado refletor, CTA principal */
+  --gold-dark:    #C81FA6;
+  --grass:        #C4189E;  /* verde grama vivo, badge "disponível no Brasil" */
+  --thread:       #C9C2B4;  /* linha tipo costura/pontilhado */
+  --thread-dark:  #3D3B3F;
+}
+
+@theme inline {
+  --color-pitch: var(--pitch);
+  --color-pitch-2: var(--pitch-2);
+  --color-chalk: var(--chalk);
+  --color-chalk-2: var(--chalk-2);
+  --color-ink: var(--ink);
+  --color-gold: var(--gold);
+  --color-gold-dark: var(--gold-dark);
+  --color-grass: var(--grass);
+  --color-thread: var(--thread);
+  --color-thread-dark: var(--thread-dark);
+  --font-display: var(--font-oswald);
+  --font-body: var(--font-inter);
+}
+
+body {
+  background: var(--chalk);
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
+/* Borda tracejada estilo costura, usada nas etiquetas e divisores */
+.stitch {
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--thread) 0,
+    var(--thread) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+  height: 2px;
+}
+
+.stitch-v {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--thread) 0,
+    var(--thread) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+  width: 2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .tag-hover {
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .tag-hover:hover {
+    transform: translateY(-3px);
+  }
+}
