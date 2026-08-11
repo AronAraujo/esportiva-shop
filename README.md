@@ -4,7 +4,7 @@ Catálogo de camisas de time com atendimento via WhatsApp, painel
 administrativo completo e upload de imagens — projeto fullstack construído
 do zero para resolver um problema real de um pequeno negócio de revenda.
 
-🔗 [Ver site no ar](https://seudominio.com.br)
+🔗 [Ver site no ar](https://esportiva-shop.vercel.app/)
 
 ## Stack
 
